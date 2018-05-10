@@ -5,8 +5,8 @@ tags: ["cpp", "cpp17", "stl"]
 slug: "std-iterator-deprecated"
 ---
 
-Это пeревод статьи [Джонатана 
-Боккара](https://www.fluentcpp.com/2018/05/08/std-iterator-deprecated/).
+Это пeревод статьи
+[Джонатана Боккара](https://www.fluentcpp.com/2018/05/08/std-iterator-deprecated/).
 
 В STL C++17 устарело несколько компонентов, которые были с самого начала C++ и 
 `std::iterator` один из них.
@@ -231,8 +231,8 @@ class MyIterator
 Поэтому лучше определять типы внутри итератора явно, чем с помощью 
 `std::iterator`. Такой код легче читать и меньше шанс сделать ошибку.
 
-Также [документ 
-P0174](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html#2.1)
+Также
+[документ P0174](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html#2.1)
  
 предлагает ещё причину для прекращения использования `std::iterator`. 
 Отсутствие ясности кода ещё заметнее при определении итератора вывода:
@@ -363,10 +363,9 @@ class MyOutputIterator
 ### libstdc++, используемый GCC
 
 Если вы посмотрите в исходный код 
-[libstdc++](https://github.com/gcc-mirror/gcc/blob/
-7b35a939b8cb869efb830701cef4fa1dc5ff4020/libstdc%2B%2B-v3/include/bits/
-stl_iterator_base_types.h), используемый GCC, то вы увидите, что 
-`std::iterator_traits` реализован следующим образом:
+[libstdc++](https://github.com/gcc-mirror/gcc/blob/7b35a939b8cb869efb830701cef4fa1dc5ff4020/libstdc%2B%2B-v3/include/bits/stl_iterator_base_types.h),
+используемый GCC, то вы увидите, что `std::iterator_traits` реализован
+следующим образом:
 
 ```cpp
 template<typename _Iterator>
