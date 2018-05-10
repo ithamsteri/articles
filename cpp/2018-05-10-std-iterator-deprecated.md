@@ -205,7 +205,7 @@ class MyIterator : public std::iterator<std::random_access_iterator, int>
 class MyIterator : public std::iterator<std::forward_iterator_tag, int, int, 
 int*, int&>
 {
-	// ...
+    // ...
 }
 ```
 
@@ -217,14 +217,14 @@ int*, int&>
 ```cpp
 class MyIterator
 {
-	public:
-		using iterator_category = std::forward_iterator_tag;
-		using value_type = int;
-		using difference_type = int;
-		using pointer = int*;
-		using reference = int&;
+  public:
+    using iterator_category = std::forward_iterator_tag;
+    using value_type = int;
+    using difference_type = int;
+    using pointer = int*;
+    using reference = int&;
   
-		// ...
+    // ...
 };
 ```
 
@@ -233,7 +233,6 @@ class MyIterator
 
 Также
 [документ P0174](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0174r2.html#2.1)
- 
 предлагает ещё причину для прекращения использования `std::iterator`. 
 Отсутствие ясности кода ещё заметнее при определении итератора вывода:
 
@@ -241,7 +240,7 @@ class MyIterator
 class MyOutputIterator : public std::iterator<std::output_iterator_tag, void, 
 void, void, void>
 {
-		// ...
+    // ...
 };
 ```
 
@@ -254,7 +253,7 @@ void, void, void>
 ```cpp
 class MyIterator : public std::iterator<std::forward_iterator_tag, int>
 {
-		value_type data;	// тип value_type неизвестен
+    value_type data;  // тип value_type неизвестен
  
     // ...
 };
@@ -288,7 +287,7 @@ template<
 ```cpp
 class MyIterator : public std::iterator<std::forward_iterator_tag, int>
 {
-		// ...
+    // ...
 };
 ```
 
@@ -310,7 +309,7 @@ class MyIterator : public std::iterator<std::forward_iterator_tag, int>
 class MyOutputIterator : public std::iterator<std::output_iterator_tag, void, 
 void, void, void>
 {
-		// ...
+    // ...
 };
 ```
 
@@ -325,11 +324,11 @@ void, void, void>
 ```cpp
 class MyOutputIterator
 {
-	public:
-		using iterator_category = std::output_iterator_tag;
-		// остальные типы не определяем
+  public:
+    using iterator_category = std::output_iterator_tag;
+    // остальные типы не определяем
   
-  	// ...реализация итератора...
+    // ...реализация итератора...
 };
 ```
 
@@ -340,7 +339,7 @@ class MyOutputIterator
 ```cpp
 class MyOutputIterator
 {
-	public:
+  public:
     using iterator_category = std::output_iterator_tag;
     using value_type = void; // приходится определять все типы :(
     using difference_type = void;
@@ -393,7 +392,7 @@ struct iterator_traits
 ```cpp
 template <class _Iter>
 struct _LIBCPP_TEMPLATE_VIS iterator_traits
-		: __iterator_traits<_Iter, __has_iterator_category<_Iter>::value> {};
+    : __iterator_traits<_Iter, __has_iterator_category<_Iter>::value> {};
 ```
 
 Определение типов в этом коде нет непосредственно в `std::iterator_traits`. Эти 
